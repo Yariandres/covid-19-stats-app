@@ -5,7 +5,10 @@ const SearchBox = ({ placeholder, handleChange }) => {
   return (
     <div>
       <InputGroup size="lg mt-5">
-        <Input placeholder={ placeholder } />
+        <Input 
+          placeholder={ placeholder } 
+          onChange={ handleChange }
+        />
       </InputGroup>
     </div>
   );
