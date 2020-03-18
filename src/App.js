@@ -76,6 +76,7 @@ class App extends Component {
                 placeholder="Search a country..."
                 handleChange={ this.handleChange } 
               />
+              <small>Sort by : asc or desc order</small>
               <TableData 
                 info={ filterCountries } 
                 sortBy={ this.sortBy }

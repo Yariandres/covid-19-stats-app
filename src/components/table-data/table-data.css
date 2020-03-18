@@ -14,5 +14,9 @@
 .table-critical-num {
   color: #f39c12;
 }
+.table-sort {
+  cursor: pointer;
+  text-decoration: underline;
+}
 
 

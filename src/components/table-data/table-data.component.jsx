@@ -1,26 +1,39 @@
 /* eslint-disable no-lone-blocks */
 import React from 'react';
 import { Table } from 'reactstrap';
-import { Button } from 'reactstrap';
+
 
 import "./table-data.css";
 
 const TableData = props => {
   return (
-    <Table className="striped mt-5 my-table">      
+    <Table className="striped mt-5 my-table">         
       <thead>
         <tr>
           <th>#</th>
           <th>Country</th>
-          <th>Cases</th>
-          <th            
-            color="danger"
+          <th
+            className="table-sort"
+            onClick={() => props.sortBy("cases")}          
+            >Cases
+            </th>
+          <th
+            className="table-sort"
             onClick={() => props.sortBy("todayCases")}
             >Today Deaths                     
           </th>
 
-          <th>Recovered</th>
-          <th>Critical</th>
+          <th
+            className="table-sort"
+            onClick={() => props.sortBy("recovered")}          
+            >Recovered
+          </th>
+
+          <th
+            className="table-sort"
+            onClick={() => props.sortBy("critical")} 
+            >Critical
+          </th>
         </tr>
       </thead>
       {props.info.map((data, index) => ( 
