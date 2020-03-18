@@ -1,0 +1,43 @@
+.my-card {
+  text-align: center;
+  background-color: rgb(37, 66, 146);
+  border-radius: 10px;
+  padding: 5rem 0;
+}
+
+.my-card-headline {
+  font-size: 3rem;
+  color: aliceblue;
+}
+
+.my-card-note {
+  font-size: 1rem;
+  color: aliceblue;
+}
+
+.my-card-number-cases {
+  color: #2ed573;
+  font-size: 7rem;
+  font-weight: 900;
+  letter-spacing: .5rem;
+}
+
+.my-card-number-deaths {
+  color: #ff4757;
+  font-size: 7rem;
+  font-weight: 900;
+  letter-spacing: .5rem;
+}
+
+.my-card-number-recovered {
+  color: #1e90ff;
+  font-size: 7rem;
+  font-weight: 900;
+  letter-spacing: .5rem;
+}
+
+.my-card-text {
+  font-size: 1.5rem;
+  letter-spacing: .2rem;
+  color: aliceblue;
+}
