@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Totalstats from "./components/world-stats/world-stats.component";
 import TableData from "./components/table-data/table-data.component";
+import SearchBox from "./components/search-box/search-box.component";
+
 import axios from 'axios';
 
 import "./App.css";
@@ -28,6 +30,12 @@ class App extends Component {
     });
   }
 
+  handleChange = e => {
+    this.setState({
+      searchField: e.target.value
+    });
+  }
+
   render() {
 
     // const {countries, searchField} = this.state;
@@ -35,13 +43,14 @@ class App extends Component {
     return (
       <div className="main">
         <div className="container">
-        <SearchBox placeholder="Search for a country..."/>
+        
 
           <div className="row"> 
             <div className="col-md-6">
               <Totalstats stats={ this.state.worldStats }/>
             </div>
             <div className="col-md-6">
+              <SearchBox placeholder="Search for a country..."/>
               <TableData info={ this.state.countries }/>
             </div>   
           </div>        
