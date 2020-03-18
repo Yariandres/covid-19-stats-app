@@ -1,6 +1,7 @@
 /* eslint-disable no-lone-blocks */
 import React from 'react';
 import { Table } from 'reactstrap';
+import { Button } from 'reactstrap';
 
 import "./table-data.css";
 
@@ -12,19 +13,26 @@ const TableData = props => {
           <th>#</th>
           <th>Country</th>
           <th>Cases</th>
-          <th>today Deaths</th>
+          <th            
+            color="danger"
+            onClick={() => props.sortBy("todayCases")}
+            >Today Deaths                     
+          </th>
+
           <th>Recovered</th>
           <th>Critical</th>
         </tr>
       </thead>
       {props.info.map((data, index) => ( 
-        <tbody>
-          <th scope="row">{index}</th>
-          <th>{data.country}</th>
-          <th className="table-cases-num">{data.cases}</th>
-          <th className="table-today-num">{data.todayCases}</th>
-          <th className="table-recovered-num">{data.recovered}</th>
-          <th className="table-critical-num">{data.critical}</th>
+        <tbody key={index}>
+          <tr>
+            <th scope="row">{index}</th>
+            <td>{data.country}</td>
+            <td className="table-cases-num">{data.cases}</td>
+            <td className="table-today-num">{data.todayCases}</td>
+            <td className="table-recovered-num">{data.recovered}</td>
+            <td className="table-critical-num">{data.critical}</td>
+          </tr>
         </tbody>
       ))}     
     </Table>

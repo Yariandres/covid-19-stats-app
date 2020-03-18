@@ -14,8 +14,11 @@ class App extends Component {
     worldStats: [],
     countries: [],
     searchField: '',
-    name: ''
-  }
+    name: '',
+    sortDirection: {
+      death_num: "asc",
+    }
+  } 
 
   componentDidMount() {
     axios.get('https://corona.lmao.ninja/all')
@@ -37,8 +40,22 @@ class App extends Component {
     });
   }
 
-  render() {
+  sortBy = key => {
+    this.setState({
+      countries: this.state.countries.sort( (a, b) => (
+        this.state.sortDirection[key] === "asc"
+          ? parseFloat(a[key]) - parseFloat(b[key])
+          : parseFloat(b[key]) - parseFloat(a[key])
+        )),
+        sortDirection: {
+         [key]: this.state.sortDirection[key] === "asc"
+          ? 'desc'
+          : "asc"
+        }
+    });
+  }
 
+  render() {
 
     const { countries, searchField } = this.state;
     const filterCountries = countries.filter(name => name.country.toLowerCase().includes(searchField.toLowerCase()));
@@ -59,7 +76,10 @@ class App extends Component {
                 placeholder="Search a country..."
                 handleChange={ this.handleChange } 
               />
-              <TableData info={ filterCountries }/>
+              <TableData 
+                info={ filterCountries } 
+                sortBy={ this.sortBy }
+              />
             </div>   
           </div>        
         </div>
